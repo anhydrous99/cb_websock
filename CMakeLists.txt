@@ -14,6 +14,9 @@ find_package(Casablanca REQUIRED)
 include_directories(${CASABLANCA_INCLUDE_DIR})
 set(requiredlibs ${requiredlibs} ${CASABLANCA_LIBRARIES})
 
+find_package(OpenSSL REQUIRED)
+set(requiredlibs ${requiredlibs} ssl crypto)
+
 include_directories(include)
 file(GLOB SOURCES "src/*.cpp")
 add_executable(cb_websock ${SOURCES})
